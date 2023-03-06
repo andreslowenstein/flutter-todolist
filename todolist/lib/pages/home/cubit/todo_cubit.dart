@@ -54,4 +54,18 @@ class TodoCubit extends Cubit<TodoState> {
       emit(TodoError(e.toString()));
     }
   }
+
+  Future<void> newTodo(String todo) async {
+    try {
+      emit(const TodoLoading());
+
+      bool resp = await _repository.newTodo(todo);
+
+      if (!resp) emit(const TodoError("An error has ocurred"));
+
+      getTodos();
+    } catch (e) {
+      emit(TodoError(e.toString()));
+    }
+  }
 }

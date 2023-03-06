@@ -72,7 +72,7 @@ Color black = const Color(0xff2f2f2f);
 final ThemeData theme = ThemeData(
   scaffoldBackgroundColor: bodyBackground,
   backgroundColor: primaryColor,
-  fontFamily: "Montserrat",
+  fontFamily: "Roboto",
   primaryColor: primaryColor,
   primarySwatch: primaryColor,
   primaryColorDark: primaryColor.shade900,
@@ -110,7 +110,7 @@ final ThemeData theme = ThemeData(
     titleTextStyle: const TextStyle(
         color: Colors.white,
         fontSize: 17.0,
-        fontFamily: 'Montserrat',
+        fontFamily: 'Roboto',
         fontWeight: FontWeight.w600),
     centerTitle: true,
     iconTheme: const IconThemeData(

@@ -26,4 +26,10 @@ class TodoRepository {
 
     return true;
   }
+
+  Future<bool> newTodo(String todo) async {
+    await _db.collection("todos").add({"Todo": todo, "Checked": false});
+
+    return true;
+  }
 }
