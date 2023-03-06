@@ -10,9 +10,10 @@ class TodoLoading extends TodoState {
 }
 
 class TodoLoaded extends TodoState {
-  const TodoLoaded(this.todo);
+  const TodoLoaded({required this.todos, required this.todoModified});
 
-  final List<Todo> todo;
+  final List<Todo> todos;
+  final String? todoModified;
 }
 
 class TodoError extends TodoState {

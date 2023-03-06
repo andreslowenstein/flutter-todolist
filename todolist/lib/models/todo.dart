@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class Todo {
   Todo({
     required this.id,
@@ -5,7 +7,16 @@ class Todo {
     required this.checked,
   });
 
-  final num id;
+  final String id;
   final String todo;
   final bool checked;
+
+  factory Todo.fromSnapshot(DocumentSnapshot<Map<String, dynamic>> document) {
+    final data = document.data()!;
+    return Todo(
+      id: document.id,
+      todo: data["Todo"],
+      checked: data["Checked"],
+    );
+  }
 }
