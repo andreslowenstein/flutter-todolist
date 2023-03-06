@@ -66,10 +66,10 @@ var tertiaryColor = MaterialColor(accentSwatch[500]!.value, accentSwatch);
 
 var errorColor = MaterialColor(errorSwatch[600]!.value, errorSwatch);
 
-Color bodyBackground = const Color(0xffF1EDEE);
+Color bodyBackground = const Color.fromARGB(255, 45, 45, 45);
 Color black = const Color(0xff2f2f2f);
 
-final ThemeData themeLight = ThemeData(
+final ThemeData themeDark = ThemeData(
   scaffoldBackgroundColor: bodyBackground,
   backgroundColor: primaryColor,
   fontFamily: "Roboto",
@@ -118,35 +118,51 @@ final ThemeData themeLight = ThemeData(
     ),
   ),
   textTheme: const TextTheme(
-    displayLarge: TextStyle(height: 64 / 57, fontSize: 57),
-    displayMedium: TextStyle(height: 52 / 45, fontSize: 45),
-    displaySmall: TextStyle(height: 44 / 36, fontSize: 36),
-    headlineLarge: TextStyle(height: 40 / 32, fontSize: 32),
-    headlineMedium:
-        TextStyle(height: 36 / 28, fontSize: 28, fontWeight: FontWeight.w600),
-    headlineSmall: TextStyle(height: 32 / 24, fontSize: 24),
+    displayLarge: TextStyle(height: 64 / 57, fontSize: 57, color: Colors.white),
+    displayMedium:
+        TextStyle(height: 52 / 45, fontSize: 45, color: Colors.white),
+    displaySmall: TextStyle(height: 44 / 36, fontSize: 36, color: Colors.white),
+    headlineLarge:
+        TextStyle(height: 40 / 32, fontSize: 32, color: Colors.white),
+    headlineMedium: TextStyle(
+        height: 36 / 28,
+        fontSize: 28,
+        fontWeight: FontWeight.w600,
+        color: Colors.white),
+    headlineSmall:
+        TextStyle(height: 32 / 24, fontSize: 24, color: Colors.white),
     titleLarge: TextStyle(
-      height: 28 / 22,
-      fontSize: 22,
-      fontWeight: FontWeight.w600,
-    ),
+        height: 28 / 22,
+        fontSize: 22,
+        fontWeight: FontWeight.w600,
+        color: Colors.white),
     titleMedium: TextStyle(
-      height: 24 / 16,
-      fontSize: 16,
-      fontWeight: FontWeight.w700,
-      letterSpacing: 0.15,
-    ),
+        height: 24 / 16,
+        fontSize: 16,
+        fontWeight: FontWeight.w700,
+        letterSpacing: 0.15,
+        color: Colors.white),
     titleSmall: TextStyle(
         height: 20 / 14,
         fontSize: 14,
         fontWeight: FontWeight.w500,
-        letterSpacing: 0.1),
-    bodyLarge: TextStyle(height: 24 / 16, fontSize: 16, letterSpacing: 0.5),
-    bodyMedium: TextStyle(height: 20 / 14, fontSize: 14, letterSpacing: 0.25),
-    bodySmall: TextStyle(height: 16 / 12, fontSize: 12, letterSpacing: 0.4),
-    labelLarge: TextStyle(height: 20 / 14, fontSize: 14, letterSpacing: 0.1),
-    labelMedium: TextStyle(height: 16 / 12, fontSize: 12, letterSpacing: 0.5),
-    labelSmall: TextStyle(height: 16 / 11, fontSize: 11, letterSpacing: 0.4),
+        letterSpacing: 0.1,
+        color: Colors.white),
+    bodyLarge: TextStyle(
+        height: 24 / 16, fontSize: 16, letterSpacing: 0.5, color: Colors.white),
+    bodyMedium: TextStyle(
+        height: 20 / 14,
+        fontSize: 14,
+        letterSpacing: 0.25,
+        color: Colors.white),
+    bodySmall: TextStyle(
+        height: 16 / 12, fontSize: 12, letterSpacing: 0.4, color: Colors.white),
+    labelLarge: TextStyle(
+        height: 20 / 14, fontSize: 14, letterSpacing: 0.1, color: Colors.white),
+    labelMedium: TextStyle(
+        height: 16 / 12, fontSize: 12, letterSpacing: 0.5, color: Colors.white),
+    labelSmall: TextStyle(
+        height: 16 / 11, fontSize: 11, letterSpacing: 0.4, color: Colors.white),
   ),
   listTileTheme: const ListTileThemeData(
     minLeadingWidth: 20,

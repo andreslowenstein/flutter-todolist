@@ -17,6 +17,8 @@ class TodoCubit extends Cubit<TodoState> {
     try {
       todos = await _repository.getTodos();
 
+      todos.sort((a, b) => a.date.compareTo(b.date));
+
       emit(TodoLoaded(todos: todos, todoModified: null));
     } catch (e) {
       emit(TodoError(e.toString()));

@@ -61,6 +61,13 @@ class _AddTodoPageState extends State<AddTodoPage> {
                   }
                   return null;
                 },
+                decoration: const InputDecoration(
+                  fillColor: Colors.grey,
+                  focusColor: Colors.white,
+                  hintText: "Todo",
+                  filled: true,
+                  labelStyle: TextStyle(color: Colors.black),
+                ),
               ),
               SizedBox(
                 height: 50,

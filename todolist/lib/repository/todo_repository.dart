@@ -16,7 +16,10 @@ class TodoRepository {
   }
 
   Future<bool> updateTodo(String id, String todo) async {
-    await _db.collection("todos").doc(id).update({"Todo": todo});
+    await _db.collection("todos").doc(id).update({
+      "Todo": todo,
+      "Date": Timestamp.now(),
+    });
 
     return true;
   }
@@ -28,7 +31,11 @@ class TodoRepository {
   }
 
   Future<bool> newTodo(String todo) async {
-    await _db.collection("todos").add({"Todo": todo, "Checked": false});
+    await _db.collection("todos").add({
+      "Todo": todo,
+      "Checked": false,
+      "Date": Timestamp.now(),
+    });
 
     return true;
   }

@@ -5,6 +5,7 @@ import 'package:todolist/pages/home/cubit/todo_cubit.dart';
 import 'package:todolist/pages/home/home_page_controller.dart';
 import 'package:todolist/repository/todo_repository.dart';
 import 'package:todolist/routes/routes.dart';
+import 'package:todolist/theme/theme_dark.dart';
 import 'package:todolist/theme/theme_light.dart';
 
 Future main() async {
@@ -28,11 +29,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      theme: theme,
-      darkTheme: ThemeData(
-        brightness: Brightness.dark,
-        /* dark theme settings */
-      ),
+      theme: themeLight,
+      darkTheme: themeDark,
       routes: AppRoutes.routesArray,
       home: const HomePageController(),
     );

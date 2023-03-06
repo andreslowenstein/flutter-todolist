@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:lite_rolling_switch/lite_rolling_switch.dart';
+import 'package:load_switch/load_switch.dart';
 import 'package:todolist/models/todo.dart';
 import 'package:todolist/pages/add_todo/add_todo_page.dart';
 import 'package:todolist/pages/help/help_page.dart';
@@ -20,7 +20,7 @@ class HomePage extends StatelessWidget {
   final List<Todo> todos;
   final String? todoModified;
 
-  void onTap(BuildContext context, String id, String todo) {
+  void updateTodo(BuildContext context, String id, String todo) {
     BlocProvider.of<TodoCubit>(context).updateTodo(id, todo);
   }
 
@@ -35,6 +35,11 @@ class HomePage extends StatelessWidget {
       confirmBtnColor: Theme.of(context).colorScheme.primary,
       backgroundColor: Theme.of(context).colorScheme.primary,
     );
+  }
+
+  Future<bool> _getFuture() async {
+    await Future.delayed(const Duration(seconds: 2));
+    return !false;
   }
 
   @override
@@ -87,7 +92,7 @@ class HomePage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Expanded(
-                              flex: 2,
+                              flex: 5,
                               child: TextFormField(
                                 autofocus: false,
                                 initialValue: todo.todo,
@@ -103,16 +108,22 @@ class HomePage extends StatelessWidget {
                             todoModified == null
                                 ? Expanded(
                                     flex: 1,
-                                    child: Checkbox(
+                                    child: LoadSwitch(
+                                      height: 30,
                                       value: false,
-                                      onChanged: (bool? state) {
+                                      trueColor: Colors.transparent,
+                                      spinColor: color.primary,
+                                      loadingBlurColor: Colors.transparent,
+                                      neutralColor: Colors.transparent,
+                                      future: _getFuture,
+                                      onChange: (v) {
                                         Timer(
                                           const Duration(seconds: 1),
                                           () => markedAsDone(context, todo.id),
                                         );
                                       },
-                                    ),
-                                  )
+                                      onTap: (v) {},
+                                    ))
                                 : Animate(
                                     effects: const [FadeEffect()],
                                     child: Expanded(
@@ -123,7 +134,7 @@ class HomePage extends StatelessWidget {
                                             color: Colors.green,
                                           ),
                                           onTap: () {
-                                            onTap(context, todo.id,
+                                            updateTodo(context, todo.id,
                                                 todoModified!);
                                           }),
                                     ),
