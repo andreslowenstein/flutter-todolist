@@ -14,7 +14,6 @@ dependencies:
     sdk: flutter
   
   cloud_firestore: ^4.4.3
-  cupertino_icons: ^1.0.2
   flutter_bloc: ^8.1.2
   flutter_animate: ^4.1.0
   cool_alert: ^1.1.0
