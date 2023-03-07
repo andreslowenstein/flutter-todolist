@@ -1,2 +1,3 @@
 # flutter-todolist
-a simple todo list app made with Flutter
+A simple todo list app made with Flutter and Firebase cloud
+

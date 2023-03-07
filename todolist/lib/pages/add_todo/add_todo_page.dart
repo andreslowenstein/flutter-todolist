@@ -27,8 +27,15 @@ class _AddTodoPageState extends State<AddTodoPage> {
     CoolAlert.show(
       context: context,
       type: CoolAlertType.success,
-      text: "Todo created!",
-      title: "Success",
+      title: "",
+      widget: Column(
+        children: const [
+          Text(
+            "Todo added!",
+            style: TextStyle(color: Colors.black),
+          ),
+        ],
+      ),
       confirmBtnColor: Theme.of(context).colorScheme.primary,
       backgroundColor: Theme.of(context).colorScheme.primary,
     );

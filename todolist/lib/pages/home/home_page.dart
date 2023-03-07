@@ -30,12 +30,9 @@ class HomePage extends StatelessWidget {
     CoolAlert.show(
       context: context,
       type: CoolAlertType.success,
+      title: "",
       widget: Column(
         children: const [
-          Text(
-            "Success!",
-            style: TextStyle(color: Colors.black),
-          ),
           Text(
             "Todo marked as done!",
             style: TextStyle(color: Colors.black),
