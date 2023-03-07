@@ -54,6 +54,7 @@ class _AddTodoPageState extends State<AddTodoPage> {
                 style: text.titleMedium,
               ),
               TextFormField(
+                key: const Key("todoTextField"),
                 controller: _controller,
                 validator: (value) {
                   if (value == "") {
@@ -73,6 +74,7 @@ class _AddTodoPageState extends State<AddTodoPage> {
                 height: 50,
                 width: double.infinity,
                 child: MaterialButton(
+                  key: const Key("continueBtn"),
                   color: color.primary,
                   height: 30,
                   onPressed: () {

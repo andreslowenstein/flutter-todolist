@@ -30,8 +30,18 @@ class HomePage extends StatelessWidget {
     CoolAlert.show(
       context: context,
       type: CoolAlertType.success,
-      text: "Todo marked as done!",
-      title: "Success",
+      widget: Column(
+        children: const [
+          Text(
+            "Success!",
+            style: TextStyle(color: Colors.black),
+          ),
+          Text(
+            "Todo marked as done!",
+            style: TextStyle(color: Colors.black),
+          ),
+        ],
+      ),
       confirmBtnColor: Theme.of(context).colorScheme.primary,
       backgroundColor: Theme.of(context).colorScheme.primary,
     );
@@ -52,12 +62,14 @@ class HomePage extends StatelessWidget {
         backgroundColor: color.primary,
         title: const Text("Todolist App"),
         leading: IconButton(
+            key: const Key("goToHelpPage"),
             onPressed: () {
               Navigator.pushNamed(context, HelpPage.route);
             },
             icon: const Icon(Icons.help_outline)),
         actions: <Widget>[
           IconButton(
+            key: const Key("addNewTodo"),
             icon: const Icon(Icons.add),
             tooltip: 'Show Snackbar',
             onPressed: () {

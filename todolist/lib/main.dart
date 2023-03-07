@@ -14,7 +14,8 @@ Future main() async {
 
   runApp(
     BlocProvider(
-      create: (_) => TodoCubit(TodoRepository()),
+      create: (_) =>
+          TodoCubit(TodoRepository(getInstance: Service().getInstance())),
       child: const MyApp(),
     ),
   );
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      key: const Key("MaterialApp"),
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: themeLight,

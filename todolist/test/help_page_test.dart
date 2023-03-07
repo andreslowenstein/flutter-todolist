@@ -26,7 +26,7 @@ class MockTodoCubit extends MockCubit<TodoState> implements TodoCubit {
 }
 
 void main() {
-  testWidgets("add a todo", (WidgetTester tester) async {
+  testWidgets("go to help page", (WidgetTester tester) async {
     MockFirebase mockF = MockFirebase();
     MockRepo repo = MockRepo(instance: mockF);
     MockTodoCubit dummyCubit = MockTodoCubit(repo);
@@ -50,17 +50,11 @@ void main() {
       ),
     ));
 
-    final addNewTodo = find.byKey(const ValueKey("addNewTodo"));
-    final textField = find.byKey(const ValueKey("todoTextField"));
-    final continueBtn = find.byKey(const ValueKey("continueBtn"));
+    final goToHelpPage = find.byKey(const ValueKey("goToHelpPage"));
 
-    await tester.tap(addNewTodo);
+    await tester.tap(goToHelpPage);
     await tester.pumpAndSettle();
 
-    expect(find.text("New todo"), findsOneWidget);
-    await tester.enterText(textField, "Todo agregado desde el testing");
-    expect(find.text("Todo agregado desde el testing"), findsOneWidget);
-
-    // await tester.tap(continueBtn);
+    expect(find.text("Made by Andrés Lowenstein"), findsOneWidget);
   });
 }

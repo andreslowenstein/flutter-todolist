@@ -2,13 +2,15 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:todolist/models/todo.dart';
 
 class TodoRepository {
-  // static TodoRepository get instance => Get.find();
+  FirebaseFirestore getInstance = Service().getInstance();
 
-  final _db = FirebaseFirestore.instance;
+  TodoRepository({required this.getInstance});
 
   Future<List<Todo>> getTodos() async {
-    final snapshot =
-        await _db.collection("todos").where("Checked", isEqualTo: false).get();
+    final snapshot = await getInstance
+        .collection("todos")
+        .where("Checked", isEqualTo: false)
+        .get();
 
     final data = snapshot.docs.map((e) => Todo.fromSnapshot(e)).toList();
 
@@ -16,7 +18,7 @@ class TodoRepository {
   }
 
   Future<bool> updateTodo(String id, String todo) async {
-    await _db.collection("todos").doc(id).update({
+    await getInstance.collection("todos").doc(id).update({
       "Todo": todo,
       "Date": Timestamp.now(),
     });
@@ -25,18 +27,25 @@ class TodoRepository {
   }
 
   Future<bool> markedAsDone(String id) async {
-    await _db.collection("todos").doc(id).update({"Checked": true});
+    await getInstance.collection("todos").doc(id).update({"Checked": true});
 
     return true;
   }
 
   Future<bool> newTodo(String todo) async {
-    await _db.collection("todos").add({
+    await getInstance.collection("todos").add({
       "Todo": todo,
       "Checked": false,
       "Date": Timestamp.now(),
     });
 
     return true;
+  }
+}
+
+class Service {
+  FirebaseFirestore getInstance() {
+    var instance = FirebaseFirestore.instance;
+    return instance;
   }
 }
