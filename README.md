@@ -5,6 +5,9 @@ developed by Andrés Lowenstein
 
 ### Install:
 ```sh
+cd todolist
+```
+```sh
 flutter pub get
 ```
 ### Run:
